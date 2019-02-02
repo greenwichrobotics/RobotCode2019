@@ -50,6 +50,8 @@ public class SampleCommand extends Command {
       toggleA = true;
     }
 
+
+    //This is to test the new Victor SP Motorcontroller
     if(toggleB && OI.pilotController.isBButtonPressed())
     {
       toggleB = false;
