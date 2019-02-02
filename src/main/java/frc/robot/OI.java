@@ -6,8 +6,8 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
- 
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.controls.*;
 
 
@@ -22,7 +22,9 @@ public class OI {
 	
 	public static void init() {
 		pilotController = new XboxMap(RobotMap.pilotControllerPort);
-		copilotController = new XboxMap(RobotMap.copilotControllerPort);
+    copilotController = new XboxMap(RobotMap.copilotControllerPort);
+    
+    createSmartDashboardNumber("Speed", 0.1); 
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
   //// joystick.
@@ -50,5 +52,14 @@ public class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
+  }
+  public static void createSmartDashboardNumber(String Name, double value)
+  {
+    SmartDashboard.putNumber(Name, value);
+  }
+
+  public static double getSpeed()
+  {
+    return SmartDashboard.getNumber("Speed", 0.1);
   }
 }
