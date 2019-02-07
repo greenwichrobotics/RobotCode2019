@@ -7,20 +7,13 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.OI;
+import edu.wpi.first.wpilibj.command.Command;
 
-public class SampleCommand extends Command {
-
-  private boolean toggleA = true;
-  private boolean toggleB = true;
-  private boolean isDown = true;
-
-  public SampleCommand() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    requires(Robot.sampleSubsystem);
+public class DriveTrainCommand extends Command {
+  public DriveTrainCommand() {
+    requires(Robot.driveTrainSubSystem);
   }
 
   // Called just before this Command runs the first time
@@ -31,37 +24,7 @@ public class SampleCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(toggleA && OI.pilotController.isAButtonPressed())
-    {
-      toggleA = false;
-      if(isDown == true)
-      {
-        isDown = false;
-        Robot.sampleSubsystem.turnClockwise();
-      }
-      else if (isDown == false)
-      {
-        isDown = true;
-        Robot.sampleSubsystem.turnCounterclockwise();
-      }
-    }
-    else if(!OI.pilotController.isAButtonPressed())
-    {
-      toggleA = true;
-    }
-
-
-    //This is to test the new Victor SP Motorcontroller
-    if(toggleB && OI.pilotController.isBButtonPressed())
-    {
-      toggleB = false;
-      Robot.sampleSubsystem.testMotorSpeed(OI.getSpeed());
-    }
-    else if(!OI.pilotController.isBButtonPressed())
-    {
-      toggleB = true;
-      Robot.sampleSubsystem.testMotorSpeed(0);
-    }
+    Robot.driveTrainSubSystem.arcadeDrive(-1*OI.pilotController.getTriggerValue(), OI.pilotController.getLeftStickX());
   }
 
   // Make this return true when this Command no longer needs to run execute()
