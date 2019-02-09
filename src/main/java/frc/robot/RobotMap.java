@@ -33,6 +33,8 @@ public class RobotMap {
   public static int hatchMotor = 4;
   public static int armEncoderA = 0;
   public static int armEncoderB = 1;
+  public static int upperSwitch = 7;
+  public static int lowerSwitch = 8;
 
   public static int pilotControllerPort = 0;
   public static int copilotControllerPort = 1;
