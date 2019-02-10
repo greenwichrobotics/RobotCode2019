@@ -15,7 +15,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import frc.robot.commands.DriveTrainCommand;
 import frc.robot.commands.SampleCommand;
 import frc.robot.subsystems.DriveTrainSubSystem;
-import frc.robot.subsystems.SampleSubsystem;;
+import frc.robot.subsystems.SampleSubsystem;
+import frc.robot.subsystems.ClimberSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -29,6 +30,7 @@ public class Robot extends TimedRobot {
    * This function is run when the robot is first started up and should be used
    * for any initialization code.
    */
+  public static final ClimberSubsystem climberSubsystem = new ClimberSubsystem();
   public static final SampleSubsystem sampleSubsystem = new SampleSubsystem();
   public static final SampleCommand sampleCommand = new SampleCommand();
   public static final DriveTrainCommand driveTrainCommand = new DriveTrainCommand();

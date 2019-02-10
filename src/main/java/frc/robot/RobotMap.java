@@ -24,15 +24,22 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
 
-  // Drive motors
+  // Drive motors Caleb was here
   public static int frontLeft = 0;
   public static int rearLeft = 1;
   public static int frontRight = 2;
   public static int rearRight = 3;
+  public static int frontClimberMotor = 4;
+  public static int backClimberMotor = 5;
+  public static int howWheelsMotor = 6;
 
   public static int hatchMotor = 4;
   public static int armEncoderA = 0;
   public static int armEncoderB = 1;
+  public static int frontClimberSwitch = 2;
+  public static int backClimberSwitch = 3;
+  public static int hotWheelsEncoderA = 5;
+  public static int hotWheelsEncoderB = 6;
 
   public static int pilotControllerPort = 0;
   public static int copilotControllerPort = 1;
