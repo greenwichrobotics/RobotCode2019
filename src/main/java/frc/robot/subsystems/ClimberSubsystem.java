@@ -34,7 +34,7 @@ public class ClimberSubsystem extends Subsystem {
   public ClimberSubsystem()
   {
     frontClimberMotorController = new Spark(RobotMap.frontClimberMotor);
-    backClimberMotorController = new Spark(RobotMap.frontClimberMotor);
+    backClimberMotorController = new Spark(RobotMap.backClimberMotor);
     hotWheelsEncoder = new Encoder(RobotMap.hotWheelsEncoderA,RobotMap.hotWheelsEncoderB);
     frontClimberSwitch = new DigitalInput(RobotMap.frontClimberSwitch);
     backClimberSwitch = new DigitalInput(RobotMap.backClimberSwitch);

@@ -37,14 +37,16 @@ public class ClimberCommand extends Command {
       Level1 = false;
       Level2 = true;
       Level3 = false;
-      Robot.climberSubsystem.ClimberLevel2(3);
+      Robot.climberSubsystem.ClimberLevel2(1);
+     // Robot.climberSubsystem.ClimberLevel2(3);
     }
     if(Level2 && OI.copilotController.isXButtonPressed())
     {
       Level1 = false;
       Level2 = false;
       Level3 = true;
-      Robot.climberSubsystem.ClimberLevel3(3);
+      Robot.climberSubsystem.ClimberLevel3(1);
+      //Robot.climberSubsystem.ClimberLevel3(3);
 
     }
     if(Level3 && OI.copilotController.isYButtonPressed())
@@ -52,7 +54,8 @@ public class ClimberCommand extends Command {
       Level1 = false;
       Level2 = true;
       Level3= false;
-      Robot.climberSubsystem.ClimberLevel2(3);
+      Robot.climberSubsystem.ClimberLevel2(1);
+      //Robot.climberSubsystem.ClimberLevel2(3);
 
     }
     if(Level2 && OI.copilotController.isYButtonPressed())
@@ -60,7 +63,8 @@ public class ClimberCommand extends Command {
       Level1 = true;
       Level2 = false;
       Level3 = false;
-      Robot.climberSubsystem.ClimberLevel1(3);
+      Robot.climberSubsystem.ClimberLevel1(1);
+      // Robot.climberSubsystem.ClimberLevel1(3);
 
     }
     if(OI.copilotController.isRBButtonPressed()) //Makes hotwheels go forwards on left bumper button press

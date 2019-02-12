@@ -11,11 +11,12 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import frc.robot.commands.ClimberCommand;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DriveTrainCommand;
-import frc.robot.commands.SampleCommand;
+//import frc.robot.commands.SampleCommand;
 import frc.robot.subsystems.DriveTrainSubSystem;
-import frc.robot.subsystems.SampleSubsystem;
+//import frc.robot.subsystems.SampleSubsystem;
 import frc.robot.subsystems.ClimberSubsystem;
 
 /**
@@ -31,10 +32,12 @@ public class Robot extends TimedRobot {
    * for any initialization code.
    */
   public static final ClimberSubsystem climberSubsystem = new ClimberSubsystem();
-  public static final SampleSubsystem sampleSubsystem = new SampleSubsystem();
-  public static final SampleCommand sampleCommand = new SampleCommand();
-  public static final DriveTrainCommand driveTrainCommand = new DriveTrainCommand();
-  public static final DriveTrainSubSystem driveTrainSubSystem = new DriveTrainSubSystem();
+ // public static final ClimberCommand climberCommand = new ClimberCommand();
+ // public static final SampleSubsystem sampleSubsystem = new SampleSubsystem();
+ // public static final SampleCommand sampleCommand = new SampleCommand();
+ public static final DriveTrainSubSystem driveTrainSubSystem = new DriveTrainSubSystem();
+  //public static final DriveTrainCommand driveTrainCommand = new DriveTrainCommand();
+ 
   public static OI m_oi;
 
   Command m_autonomousCommand;
@@ -73,7 +76,9 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
-    Scheduler.getInstance().add(new SampleCommand());
+    //Scheduler.getInstance().add(new SampleCommand());
+    Scheduler.getInstance().add(new DriveTrainCommand());
+    Scheduler.getInstance().add(new ClimberCommand());
   }
 
   @Override

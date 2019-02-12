@@ -33,7 +33,7 @@ public class RobotMap {
   public static int backClimberMotor = 5;
   public static int howWheelsMotor = 6;
 
-  public static int hatchMotor = 4;
+  //public static int hatchMotor = 4;
   public static int armEncoderA = 0;
   public static int armEncoderB = 1;
   public static int frontClimberSwitch = 2;
