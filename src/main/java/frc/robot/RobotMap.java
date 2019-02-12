@@ -34,6 +34,13 @@ public class RobotMap {
   public static int armEncoderA = 0;
   public static int armEncoderB = 1;
 
+  public static int hatchRaiseMotor = 4; //PWM
+  public static int hatchTurnMotor = 5; //PWM
+  public static int hatchMotorRaiseEncoderA = 2; //DIO
+  public static int hatchMotorRaiseEncoderB = 3; //DIO
+  public static int hatchTurnMotorEncoderA = 4; //DIO
+  public static int hatchTurnMotorEncoderB = 5; //DIO
+
   public static int pilotControllerPort = 0;
   public static int copilotControllerPort = 1;
 }
