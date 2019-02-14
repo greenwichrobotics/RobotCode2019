@@ -33,6 +33,9 @@ public class RobotMap {
   public static int frontClimberMotor = 4;
   public static int backClimberMotor = 5;
   public static int howWheelsMotor = 6;
+  public static int hatchRaiseMotor = 7;
+  public static int hatchTurnMotor = 8;
+  public static int elevatorMotor = 9;
   
   // DIO
   public static int frontClimberSwitch = 0;
