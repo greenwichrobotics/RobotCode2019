@@ -31,55 +31,64 @@ public class ClimberCommand extends Command {
 
   // Called repeatedly when this Command is scheduled to run
   @Override
+
   protected void execute() {
-    if(Level1 && OI.copilotController.isXButtonPressed())
+    // if(Level1 && OI.pilotController.isYButtonPressed()) // Descend from 6pt Platform
+    // {
+    //   Robot.climberSubsystem.ClimberLevel2(2);
+    //   Robot.climberSubsystem.hotWheelsBackward();
+    //   Robot.climberSubsystem.ClimberLevel2(1);
+    //   Robot.climberSubsystem.hotWheelsBackward();
+    //   Robot.climberSubsystem.ClimberLevel1(3);
+    // }
+    if(Level1 && OI.pilotController.isXButtonPressed())
     {
-      Level1 = false;
-      Level2 = true;
-      Level3 = false;
-      Robot.climberSubsystem.ClimberLevel2(1);
-     // Robot.climberSubsystem.ClimberLevel2(3);
+        Robot.climberSubsystem.testUp();
     }
-    if(Level2 && OI.copilotController.isXButtonPressed())
+    if(Level1 && OI.pilotController.isAButtonPressed())
     {
-      Level1 = false;
-      Level2 = false;
-      Level3 = true;
-      Robot.climberSubsystem.ClimberLevel3(1);
-      //Robot.climberSubsystem.ClimberLevel3(3);
+      Robot.climberSubsystem.testDown();
+    }
+    // if(Level1 && OI.pilotController.isXButtonPressed()) // Climb to 12pt Platform
+    // {
+    //   Robot.climberSubsystem.ClimberLevel3(3);
+    //   Robot.climberSubsystem.hotWheelsForward();
+    //   Robot.climberSubsystem.ClimberLevel1(1);
+    //   Robot.climberSubsystem.hotWheelsForward();
+    //   Robot.climberSubsystem.ClimberLevel1(2);
+    // }
 
-    }
-    if(Level3 && OI.copilotController.isYButtonPressed())
-    {
-      Level1 = false;
-      Level2 = true;
-      Level3= false;
-      Robot.climberSubsystem.ClimberLevel2(1);
-      //Robot.climberSubsystem.ClimberLevel2(3);
+    // if(Level1 && OI.pilotController.isAButtonPressed()) // Climb to 6pt Platform
+    // {
+    //   Robot.climberSubsystem.ClimberLevel2(3);
+    //   Robot.climberSubsystem.hotWheelsForward();
+    //   Robot.climberSubsystem.ClimberLevel1(1);
+    //   Robot.climberSubsystem.hotWheelsForward();
+    //   Robot.climberSubsystem.ClimberLevel1(2);
+    // }
 
-    }
-    if(Level2 && OI.copilotController.isYButtonPressed())
-    {
-      Level1 = true;
-      Level2 = false;
-      Level3 = false;
-      Robot.climberSubsystem.ClimberLevel1(1);
-      // Robot.climberSubsystem.ClimberLevel1(3);
+    // if(Level2 && OI.pilotController.isXButtonPressed())
+    // {
+    //   Level1 = true;
+    //   Level2 = false;
+    //   Level3 = false;
+    //   Robot.climberSubsystem.ClimberLevel1(1);
+    //   // Robot.climberSubsystem.ClimberLevel1(3);
+    //}
 
-    }
-    if(OI.copilotController.isRBButtonPressed()) //Makes hotwheels go forwards on left bumper button press
-    {
-      hotWheelsForward = true;
-      hotWheelsBackward = false;
-      Robot.climberSubsystem.hotWheelsForward();
-    }
-    if(OI.copilotController.isLBButtonPressed()) //Makes hotwheels go backwards on right bumper button press
-    {
-      hotWheelsForward = false;
-      hotWheelsBackward = true;
-      Robot.climberSubsystem.hotWheelsBackward();
-    }
-    
+    // if(OI.pilotController.isRBButtonPressed()) //Makes hotwheels go forwards on left bumper button press
+    // {
+    //   hotWheelsForward = true;
+    //   hotWheelsBackward = false;
+    //   Robot.climberSubsystem.hotWheelsForward();
+    // }
+
+    // if(OI.pilotController.isLBButtonPressed()) //Makes hotwheels go backwards on right bumper button press
+    // {
+    //   hotWheelsForward = false;
+    //   hotWheelsBackward = true;
+    //   Robot.climberSubsystem.hotWheelsBackward();
+    // }
   }
 
   // Make this return true when this Command no longer needs to run execute()
