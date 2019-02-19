@@ -62,4 +62,8 @@ public class OI {
   {
     return SmartDashboard.getNumber("Speed", 0.1);
   }
+  public static void putSpeed(double speed)
+  {
+     SmartDashboard.putNumber("Speed", speed);
+  }
 }

@@ -41,14 +41,17 @@ public class ClimberCommand extends Command {
     //   Robot.climberSubsystem.hotWheelsBackward();
     //   Robot.climberSubsystem.ClimberLevel1(3);
     // }
-    if(Level1 && OI.pilotController.isXButtonPressed())
-    {
-        Robot.climberSubsystem.testUp();
-    }
-    if(Level1 && OI.pilotController.isAButtonPressed())
-    {
-      Robot.climberSubsystem.testDown();
-    }
+    // if(Level1 && OI.pilotController.isXButtonPressed())
+    // {
+    //     Robot.climberSubsystem.testUp();
+    // }
+    // if(Level1 && OI.pilotController.isAButtonPressed())
+    // {
+    //   Robot.climberSubsystem.testDown();
+    // }
+
+    Robot.climberSubsystem.testUp(OI.pilotController.getLeftStickY());
+    OI.putSpeed(OI.pilotController.getLeftStickY());
     // if(Level1 && OI.pilotController.isXButtonPressed()) // Climb to 12pt Platform
     // {
     //   Robot.climberSubsystem.ClimberLevel3(3);

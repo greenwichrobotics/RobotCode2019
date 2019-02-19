@@ -25,8 +25,8 @@ public class ClimberSubsystem extends Subsystem {
   DigitalInput frontClimberSwitch;
   DigitalInput backClimberSwitch;
   Spark hotWheelsMotorController;
-  double climberUpSpeed = 0.5;
-  double climberDownSpeed = -0.5;
+  double climberUpSpeed = 0.3;
+  double climberDownSpeed = -0.3;
   double hotWheelsForwardSpeed = 0.1;
   double hotWheelsBackwardSpeed = -0.1;
   int forwardDistance = 0;
@@ -160,15 +160,18 @@ public class ClimberSubsystem extends Subsystem {
     Timer.delay(backwardDistance);
     hotWheelsMotorController.set(0);
   }
-  public void testUp()
+  public void testUp(double speed)
   {
-    frontClimberMotorController.set(climberUpSpeed);
-    backClimberMotorController.set(climberUpSpeed);
+    frontClimberMotorController.set(speed);
+    // backClimberMotorController.set(climberUpSpeed);
   }
-  public void testDown()
-  {
-    frontClimberMotorController.set(climberDownSpeed);
-    backClimberMotorController.set(climberDownSpeed);
+  // public void testDown(double speed)
+  // {
+  //   frontClimberMotorController.set(speed);
+  //   // backClimberMotorController.set(climberDownSpeed);
+  // }
+  public void stop(){
+    frontClimberMotorController.set(0.0);
   }
   @Override
   public void initDefaultCommand() {                                                            

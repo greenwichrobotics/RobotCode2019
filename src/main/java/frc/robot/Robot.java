@@ -77,7 +77,7 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.cancel();
     }
     //Scheduler.getInstance().add(new SampleCommand());
-    Scheduler.getInstance().add(new DriveTrainCommand());
+    // Scheduler.getInstance().add(new DriveTrainCommand());
     Scheduler.getInstance().add(new ClimberCommand());
   }
 
