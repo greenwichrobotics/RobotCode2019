@@ -48,23 +48,7 @@ public class RobotMap {
   public static int hatchMotorRaiseEncoderB = 7;
   public static int hatchTurnMotorEncoderA = 8;
   public static int hatchTurnMotorEncoderB = 9; 
-
-<<<<<<< HEAD
-  public static int hatchMotor = 4;
-  public static int armEncoderA = 0;
-  public static int armEncoderB = 1;
-  public static int upperSwitch = 7;
-  public static int lowerSwitch = 8;
-
-  public static int hatchRaiseMotor = 4; //PWM
-  public static int hatchTurnMotor = 5; //PWM
-  public static int hatchMotorRaiseEncoderA = 2; //DIO
-  public static int hatchMotorRaiseEncoderB = 3; //DIO
-  public static int hatchTurnMotorEncoderA = 4; //DIO
-  public static int hatchTurnMotorEncoderB = 5; //DIO
-=======
->>>>>>> sg
-
+  
   //USB
   public static int pilotControllerPort = 0;
   public static int copilotControllerPort = 1;
