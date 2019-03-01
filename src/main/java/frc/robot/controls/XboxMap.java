@@ -25,7 +25,7 @@ public class XboxMap extends Joystick{
 	        //joystick is in the loose position so return zero - as if the 
 	        //joystick was not moved
 	        if (Math.abs(d) < DEADZONE_MAGIC_NUMBER) {
-	            return 0;
+	            return 0;           
 	        }
 	        
 	        if (d == 0)

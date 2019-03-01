@@ -26,6 +26,7 @@ public class RobotMap {
 
   // PWM
   // Drive motors
+  // Drive motors Caleb was here
   public static int frontLeft = 0;
   public static int rearLeft = 1;
   public static int frontRight = 2;
@@ -53,6 +54,11 @@ public class RobotMap {
   public static int ultrasonic = 0;
   
   //USB
+
+  //public static int hatchMotor = 4;
+  public static int armEncoderA = 0;
+  public static int armEncoderB = 1;
+
   public static int pilotControllerPort = 0;
   public static int copilotControllerPort = 1;
 
