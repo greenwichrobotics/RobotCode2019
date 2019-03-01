@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.*;
+import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -16,7 +18,8 @@ import frc.robot.commands.DriveTrainCommand;
 import frc.robot.commands.SampleCommand;
 import frc.robot.subsystems.DriveTrainSubSystem;
 import frc.robot.subsystems.ElevatorSubsystem;
-import frc.robot.subsystems.SampleSubsystem;;
+import frc.robot.subsystems.SampleSubsystem;
+import frc.robot.subsystems.UltrasonicSubSystem;;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -30,9 +33,10 @@ public class Robot extends TimedRobot {
    * This function is run when the robot is first started up and should be used
    * for any initialization code.
    */
+ // public static final UltrasonicSubSystem ultrasonicSubSystem = new UltrasonicSubsystem();
   public static final SampleSubsystem sampleSubsystem = new SampleSubsystem();
-  public static final SampleCommand sampleCommand = new SampleCommand();
-  public static final DriveTrainCommand driveTrainCommand = new DriveTrainCommand();
+  //public static final SampleCommand sampleCommand = new SampleCommand();
+ // public static final DriveTrainCommand driveTrainCommand = new DriveTrainCommand();
   public static final DriveTrainSubSystem driveTrainSubSystem = new DriveTrainSubSystem();
   public static final ElevatorSubsystem elevatorSubsystem = new ElevatorSubsystem();
   public static OI m_oi;
@@ -43,6 +47,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
        OI.init();
+       CameraServer.getInstance().startAutomaticCapture();
        //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
        // chooser.addOption("My Auto", new MyAutoCommand());
   }
@@ -75,6 +80,7 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.cancel();
     }
     Scheduler.getInstance().add(new SampleCommand());
+    Scheduler.getInstance().add(new DriveTrainCommand());
   }
 
   @Override

@@ -24,7 +24,7 @@ public class ElevatorSubsystem extends Subsystem {
   double downSpeed = -0.5;
 
   public ElevatorSubsystem(){
-    liftMotorController = new Spark(RobotMap.hatchMotor); //todo: replace with elevator motor
+    liftMotorController = new Spark(RobotMap.frontClimberMotor); //todo: replace with elevator motor
     liftSwitchA = new DigitalInput(RobotMap.upperSwitch);
     liftSwitchB = new DigitalInput(RobotMap.lowerSwitch);
 

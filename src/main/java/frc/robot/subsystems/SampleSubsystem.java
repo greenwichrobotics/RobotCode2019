@@ -8,7 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Encoder;
 import frc.robot.RobotMap;
 
@@ -16,35 +16,36 @@ import frc.robot.RobotMap;
  * Add your docs here.
  */
 public class SampleSubsystem extends Subsystem {
-  VictorSP hatchMotorController;
-  Encoder hatchMotorEncoder;
+  Spark elevatorMotor;
+ // Encoder hatchMotorEncoder;
 
 
   public SampleSubsystem(){
-    hatchMotorController = new VictorSP(RobotMap.hatchMotor);
-    hatchMotorEncoder = new Encoder(RobotMap.armEncoderA, RobotMap.armEncoderB);
+    //hatchMotorController = new VictorSP(RobotMap.hatchMotor);
+    elevatorMotor = new Spark(RobotMap.elevatorMotor);
+   // hatchMotorEncoder = new Encoder(RobotMap.armEncoderA, RobotMap.armEncoderB);
   }
 
   public void turnClockwise() {
-    hatchMotorEncoder.reset();
-    //250 is half way
-    while(hatchMotorEncoder.get() > -250){
-    hatchMotorController.set(-0.5);
-  }
-  hatchMotorController.set(0);
+  //   hatchMotorEncoder.reset();
+  //   //250 is half way
+  //   while(hatchMotorEncoder.get() > -250){
+  //   hatchMotorController.set(-0.5);
+  // }
+  // hatchMotorController.set(0);
   }
 
   public void turnCounterclockwise(){
-    hatchMotorEncoder.reset();
-    while(hatchMotorEncoder.get() < 250){
-    hatchMotorController.set(0.5);
-  }
-  hatchMotorController.set(0);  
+  //   hatchMotorEncoder.reset();
+  //   while(hatchMotorEncoder.get() < 250){
+  //   hatchMotorController.set(0.5);
+  // }
+  // hatchMotorController.set(0);  
   }
 
   public void testMotorSpeed(double speed)
   {
-      hatchMotorController.set(speed);
+      elevatorMotor.set(speed);
   }
 
   @Override

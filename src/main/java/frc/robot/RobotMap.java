@@ -49,6 +49,9 @@ public class RobotMap {
   public static int hatchTurnMotorEncoderA = 8;
   public static int hatchTurnMotorEncoderB = 9; 
   
+  //ANALOG
+  public static int ultrasonic = 0;
+  
   //USB
   public static int pilotControllerPort = 0;
   public static int copilotControllerPort = 1;

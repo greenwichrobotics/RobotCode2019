@@ -27,7 +27,7 @@ public class ElevatorCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(toggleA && OI.copilotController.isAButtonPressed())
+    if(toggleA && OI.copilotController.isYButtonPressed())
     {
       toggleA = false;
       if(level ==1)
@@ -41,7 +41,7 @@ public class ElevatorCommand extends Command {
         Robot.elevatorSubsystem.goToLevel3();
       }
     }
-    else if(!OI.pilotController.isAButtonPressed())
+    else if(!OI.pilotController.isYButtonPressed())
     {
       toggleA = true;
     }

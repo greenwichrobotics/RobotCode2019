@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveTrainCommand extends Command {
   public DriveTrainCommand() {
     requires(Robot.driveTrainSubSystem);
+   // requires(Robot.ultrasonicSubSystem);
   }
 
   // Called just before this Command runs the first time

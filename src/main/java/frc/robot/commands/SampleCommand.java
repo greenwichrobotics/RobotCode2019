@@ -31,37 +31,38 @@ public class SampleCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(toggleA && OI.pilotController.isAButtonPressed())
-    {
-      toggleA = false;
-      if(isDown == true)
-      {
-        isDown = false;
-        Robot.sampleSubsystem.turnClockwise();
-      }
-      else if (isDown == false)
-      {
-        isDown = true;
-        Robot.sampleSubsystem.turnCounterclockwise();
-      }
-    }
-    else if(!OI.pilotController.isAButtonPressed())
-    {
-      toggleA = true;
-    }
+    // if(toggleA && OI.pilotController.isAButtonPressed())
+    // {
+    //   toggleA = false;
+    //   if(isDown == true)
+    //   {
+    //     isDown = false;
+    //     Robot.sampleSubsystem.turnClockwise();
+    //   }
+    //   else if (isDown == false)
+    //   {
+    //     isDown = true;
+    //     Robot.sampleSubsystem.turnCounterclockwise();
+    //   }
+    // }
+    // else if(!OI.pilotController.isAButtonPressed())
+    // {
+    //   toggleA = true;
+    // }
 
+    Robot.sampleSubsystem.testMotorSpeed(OI.pilotController.getLeftStickY());
 
     //This is to test the new Victor SP Motorcontroller
-    if(toggleB && OI.pilotController.isBButtonPressed())
-    {
-      toggleB = false;
-      Robot.sampleSubsystem.testMotorSpeed(OI.getSpeed());
-    }
-    else if(!OI.pilotController.isBButtonPressed())
-    {
-      toggleB = true;
-      Robot.sampleSubsystem.testMotorSpeed(0);
-    }
+    // if(toggleB && OI.pilotController.isBButtonPressed())
+    // {
+    //   toggleB = false;
+    //   Robot.sampleSubsystem.testMotorSpeed(OI.getSpeed());
+    // }
+    // else if(!OI.pilotController.isBButtonPressed())
+    // {
+    //   toggleB = true;
+    //   Robot.sampleSubsystem.testMotorSpeed(0);
+    // }
   }
 
   // Make this return true when this Command no longer needs to run execute()
