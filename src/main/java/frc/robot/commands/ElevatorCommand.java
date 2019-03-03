@@ -13,8 +13,8 @@ import frc.robot.OI;
 
 public class ElevatorCommand extends Command {
   int level = 1;
-  private boolean toggleA = true;
-  private boolean toggleB = true;
+  private boolean toggleY = true;
+  private boolean toggleX = true;
   public ElevatorCommand() {
    requires(Robot.elevatorSubsystem);
   }
@@ -27,9 +27,9 @@ public class ElevatorCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(toggleA && OI.copilotController.isYButtonPressed())
+    if(toggleY && OI.copilotController.isYButtonPressed())
     {
-      toggleA = false;
+      toggleY = false;
       if(level ==1)
       {
        level = 2;
@@ -43,13 +43,13 @@ public class ElevatorCommand extends Command {
     }
     else if(!OI.pilotController.isYButtonPressed())
     {
-      toggleA = true;
+      toggleY = true;
     }
     
 
-    if(toggleB && OI.copilotController.isBButtonPressed())
+    if(toggleX && OI.copilotController.isXButtonPressed())
     {
-      toggleB = false;
+      toggleX = false;
       if(level == 3)
       {
        level = 2;
@@ -61,9 +61,9 @@ public class ElevatorCommand extends Command {
         Robot.elevatorSubsystem.goToLevel1();
       }
     }
-    else if(!OI.pilotController.isBButtonPressed())
+    else if(!OI.pilotController.isXButtonPressed())
     {
-      toggleB = true;
+      toggleX = true;
     }
   }
 

@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveTrainCommand extends Command {
   public DriveTrainCommand() {
     requires(Robot.driveTrainSubSystem);
-   // requires(Robot.ultrasonicSubSystem);
+    requires(Robot.ultrasonicSubSystem);
   }
 
   // Called just before this Command runs the first time
@@ -25,7 +25,7 @@ public class DriveTrainCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    // Robot.driveTrainSubSystem.arcadeDrive(-1*OI.pilotController.getTriggerValue(), OI.pilotController.getLeftStickX());
+    Robot.driveTrainSubSystem.arcadeDrive(-1 * OI.pilotController.getTriggerValue(), OI.pilotController.getLeftStickX());
   }
 
   // Make this return true when this Command no longer needs to run execute()

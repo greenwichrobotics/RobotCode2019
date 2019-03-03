@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
@@ -22,41 +23,76 @@ public class HatchClawSubsystem extends Subsystem {
   Encoder hatchMotorRaiseEncoder;
   VictorSP hatchTurnMotorController;
   Encoder hatchTurnMotorEncoder;
+  Spark elevatorMotor;
 
   public HatchClawSubsystem() {
+    //elevatorMotor = new Spark(RobotMap.elevatorMotor);
     hatchMotorRaiseController = new VictorSP(RobotMap.hatchRaiseMotor);
     hatchMotorRaiseEncoder = new Encoder(RobotMap.hatchMotorRaiseEncoderA, RobotMap.hatchMotorRaiseEncoderB);
     hatchTurnMotorController = new VictorSP(RobotMap.hatchTurnMotor);
     hatchTurnMotorEncoder = new Encoder(RobotMap.hatchTurnMotorEncoderA, RobotMap.hatchTurnMotorEncoderB);
   }
   public void turnClockwise() {
-    hatchMotorRaiseEncoder.reset();
+    hatchTurnMotorEncoder.reset();
     //250 is half way
-    while(hatchMotorRaiseEncoder.get() > -103){
-    hatchMotorRaiseController.set(-0.3);
+    while(hatchTurnMotorEncoder.get() < 250){
+      hatchTurnMotorController.set(0.3);
   }
   hatchTurnMotorController.set(0);
   hatchTurnMotorEncoder.reset();
   //250 is half way
-  while(hatchTurnMotorEncoder.get() > -250){
-  hatchTurnMotorController.set(-0.5);
-}
-hatchTurnMotorController.set(0);
+  // while(hatchTurnMotorEncoder.get() > -250){
+  // hatchTurnMotorController.set(-0.5);
+// }
+//hatchTurnMotorController.set(0);
   }
 
   public void turnCounterclockwise(){
-    hatchMotorRaiseEncoder.reset();
-    while(hatchMotorRaiseEncoder.get() < 103){
-    hatchMotorRaiseController.set(0.3);
+    hatchTurnMotorEncoder.reset();
+    while(hatchTurnMotorEncoder.get() < 250){
+      hatchTurnMotorController.set(0.3);
   }
-  hatchMotorRaiseController.set(0); 
+  hatchTurnMotorController.set(0); 
  
   hatchTurnMotorEncoder.reset();
-    while(hatchTurnMotorEncoder.get() < 103){
-    hatchTurnMotorController.set(0.5);
+  //   while(hatchTurnMotorEncoder.get() < 103){
+  //   hatchTurnMotorController.set(0.5);
+  // }
+  // hatchTurnMotorController.set(0);  
   }
-  hatchTurnMotorController.set(0);  
-  }
+//////////////////////////////////
+public void moveUp() {
+  hatchMotorRaiseEncoder.reset();
+  //250 is half way
+  while(hatchMotorRaiseEncoder.get() < 125){
+  hatchMotorRaiseController.set(0.3);
+}
+hatchMotorRaiseController.set(0);
+hatchMotorRaiseEncoder.reset();
+//250 is half way
+// while(hatchTurnMotorEncoder.get() > -150){
+// hatchTurnMotorController.set(-0.5);
+// }
+// hatchTurnMotorController.set(0);
+}
+
+public void moveDown(){
+  hatchMotorRaiseEncoder.reset();
+  while(hatchMotorRaiseEncoder.get() > -125){
+  hatchMotorRaiseController.set(-0.3);
+}
+hatchMotorRaiseController.set(0); 
+hatchMotorRaiseEncoder.reset();
+// hatchTurnMotorEncoder.reset();
+//   while(hatchTurnMotorEncoder.get() < 103){
+//   hatchTurnMotorController.set(0.5);
+// }
+// hatchTurnMotorController.set(0);  
+}
+  // public void testMotorSpeed(double speed)
+  // {
+  //     elevatorMotor.set(speed);
+  // }
     //when button is pushed arm lowers because the arm was placed that way
     //if same button is pushed then return to the up original position
     //if same button is pushed while in action the arm stops

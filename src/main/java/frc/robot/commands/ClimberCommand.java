@@ -12,8 +12,8 @@ import frc.robot.OI;
 import frc.robot.Robot;
 
 public class ClimberCommand extends Command {
-  private boolean Level1 = true;
-  private boolean Level2 = false;
+  private boolean Level1 = false;
+  private boolean Level2 = true;
   private boolean Level3 = false;
   private boolean hotWheelsForward = false;
   private boolean hotWheelsBackward = false;
@@ -33,14 +33,17 @@ public class ClimberCommand extends Command {
   @Override
 
   protected void execute() {
-    // if(Level1 && OI.pilotController.isYButtonPressed()) // Descend from 6pt Platform
-    // {
-    //   Robot.climberSubsystem.ClimberLevel2(2);
-    //   Robot.climberSubsystem.hotWheelsBackward();
-    //   Robot.climberSubsystem.ClimberLevel2(1);
-    //   Robot.climberSubsystem.hotWheelsBackward();
-    //   Robot.climberSubsystem.ClimberLevel1(3);
-    // }
+    if(Level2 && OI.pilotController.isYButtonPressed()) // Descend from 6pt Platform
+    {
+      Robot.climberSubsystem.ClimberLevel2(2);
+      Robot.climberSubsystem.hotWheelsBackward();
+      Robot.climberSubsystem.ClimberLevel2(1);
+      Robot.climberSubsystem.hotWheelsBackward();
+      Robot.climberSubsystem.ClimberLevel1(3);
+      Level1 = true;
+      Level2 = false;
+    }
+    
     // if(Level1 && OI.pilotController.isXButtonPressed())
     // {
     //     Robot.climberSubsystem.testUp();
@@ -50,25 +53,26 @@ public class ClimberCommand extends Command {
     //   Robot.climberSubsystem.testDown();
     // }
 
-    Robot.climberSubsystem.testUp(OI.pilotController.getLeftStickY());
-    OI.putSpeed(OI.pilotController.getLeftStickY());
-    // if(Level1 && OI.pilotController.isXButtonPressed()) // Climb to 12pt Platform
-    // {
-    //   Robot.climberSubsystem.ClimberLevel3(3);
-    //   Robot.climberSubsystem.hotWheelsForward();
-    //   Robot.climberSubsystem.ClimberLevel1(1);
-    //   Robot.climberSubsystem.hotWheelsForward();
-    //   Robot.climberSubsystem.ClimberLevel1(2);
-    // }
+    // Robot.climberSubsystem.testUp(OI.pilotController.getLeftStickY());
+    // OI.putSpeed(OI.pilotController.getLeftStickY());
 
-    // if(Level1 && OI.pilotController.isAButtonPressed()) // Climb to 6pt Platform
-    // {
-    //   Robot.climberSubsystem.ClimberLevel2(3);
-    //   Robot.climberSubsystem.hotWheelsForward();
-    //   Robot.climberSubsystem.ClimberLevel1(1);
-    //   Robot.climberSubsystem.hotWheelsForward();
-    //   Robot.climberSubsystem.ClimberLevel1(2);
-    // }
+    if(Level1 && OI.pilotController.isXButtonPressed()) // Climb to 12pt Platform
+    {
+      Robot.climberSubsystem.ClimberLevel3(3);
+      Robot.climberSubsystem.hotWheelsForward();
+      Robot.climberSubsystem.ClimberLevel1(1);
+      Robot.climberSubsystem.hotWheelsForward();
+      Robot.climberSubsystem.ClimberLevel1(2);
+    }
+
+    if(Level1 && OI.pilotController.isAButtonPressed()) // Climb to 6pt Platform
+    {
+      Robot.climberSubsystem.ClimberLevel2(3);
+      Robot.climberSubsystem.hotWheelsForward();
+      Robot.climberSubsystem.ClimberLevel1(1);
+      Robot.climberSubsystem.hotWheelsForward();
+      Robot.climberSubsystem.ClimberLevel1(2);
+    }
 
     // if(Level2 && OI.pilotController.isXButtonPressed())
     // {

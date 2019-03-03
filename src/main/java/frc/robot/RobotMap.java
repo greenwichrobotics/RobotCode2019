@@ -33,7 +33,7 @@ public class RobotMap {
   public static int rearRight = 3;
   public static int frontClimberMotor = 4;
   public static int backClimberMotor = 5;
-  public static int howWheelsMotor = 6;
+  public static int hotWheelsMotor = 6;
   public static int hatchRaiseMotor = 7;
   public static int hatchTurnMotor = 8;
   public static int elevatorMotor = 9;
@@ -43,8 +43,8 @@ public class RobotMap {
   public static int backClimberSwitch = 1;
   public static int hotWheelsEncoderA = 2;
   public static int hotWheelsEncoderB = 3;
-  public static int upperSwitch = 4;
-  public static int lowerSwitch = 5;
+  public static int elevatorEncoderA = 4;
+  public static int elevatorEncoderB = 5;
   public static int hatchMotorRaiseEncoderA = 6;
   public static int hatchMotorRaiseEncoderB = 7;
   public static int hatchTurnMotorEncoderA = 8;
@@ -56,8 +56,7 @@ public class RobotMap {
   //USB
 
   //public static int hatchMotor = 4;
-  public static int armEncoderA = 0;
-  public static int armEncoderB = 1;
+ 
 
   public static int pilotControllerPort = 0;
   public static int copilotControllerPort = 1;
