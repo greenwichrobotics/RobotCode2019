@@ -10,14 +10,14 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.OI;
-import frc.robot.subsystems.HatchClawSubsystem;
+//import frc.robot.subsystems.HatchClawSubsystem;
 
 public class HatchClawCommand extends Command {
   private boolean toggleA = true; //For rotating left/right
   private boolean toggleRB = true; //For moving up
   private boolean toggleLB = true; //For moving down
-  private boolean isDown = true;
-  private boolean isTurnDown = true;
+ // private boolean isDown = false;
+  //private boolean isTurnDown = true;
   public HatchClawCommand() {
     requires(Robot.hatchClawSubsystem);
   }
@@ -25,38 +25,39 @@ public class HatchClawCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+   // Robot.hatchClawSubsystem.startPosition();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(toggleA && OI.copilotController.isAButtonPressed())
+    if((toggleA && OI.copilotController.isAButtonPressed()) || Robot.hatchClawSubsystem.reachedTurn())
     {
        toggleA = false;
-       if(isTurnDown == true)
-       {
-         isTurnDown = false;
+      //  if(isTurnDown == true)
+      //  {
+      //    isTurnDown = false;
          Robot.hatchClawSubsystem.turnClockwise();
-       }
-       else if (isTurnDown == false)
-       {
-         isTurnDown = true;
-         Robot.hatchClawSubsystem.turnCounterclockwise();
-       }
+      //  }
+      //  else if (isTurnDown == false)
+      //  {
+      //    isTurnDown = true;
+      //    Robot.hatchClawSubsystem.turnCounterclockwise();
+      //  }
      }
      else if(!OI.copilotController.isAButtonPressed())
      {
        toggleA = true;
      }
 //////////////////////////////////
-if(toggleRB && OI.copilotController.isRBButtonPressed())
+if((toggleRB && OI.copilotController.isRBButtonPressed()) || Robot.hatchClawSubsystem.reachedDown())
     {
        toggleRB = false;
-       if(isDown == true)
-       {
-         isDown = false;
-         Robot.hatchClawSubsystem.moveUp();
-       }
+      //  if(isDown == true)
+      //  {
+      //    isDown = false;
+         Robot.hatchClawSubsystem.moveUp(); // HAVE TO FIX MOVE UP
+       //}
       //  else if (isDown == false)
       //  {
       //    isDown = true;
@@ -69,14 +70,14 @@ if(toggleRB && OI.copilotController.isRBButtonPressed())
     }
  
   //////////////////////////////////
-if(toggleLB && OI.copilotController.isLBButtonPressed())
+if((toggleLB && OI.copilotController.isLBButtonPressed()) || Robot.hatchClawSubsystem.reachedDown())
 {
    toggleLB = false;
-   if(isDown == false)
-   {
-     isDown = true;
+  //  if(isDown == false)
+  //  {
+  //    isDown = true;
      Robot.hatchClawSubsystem.moveDown();
-   }
+   //}
   //  else if (isDown == false)
   //  {
   //    isDown = true;

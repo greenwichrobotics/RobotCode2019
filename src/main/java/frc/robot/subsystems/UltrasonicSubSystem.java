@@ -9,7 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.commands.*;
 
@@ -34,7 +34,7 @@ public class UltrasonicSubSystem extends Subsystem {
     //SmartDashboard.putNumber("Distance (real)", getDistance());
   }
     public void initDefaultCommand() {
-      setDefaultCommand(new DriveTrainCommand());
+      //setDefaultCommand(new DriveTrainCommand());
     }
   }
 		 

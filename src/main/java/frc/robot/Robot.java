@@ -60,7 +60,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousInit() {
-    m_autonomousCommand = m_chooser.getSelected();
+    // m_autonomousCommand = m_chooser.getSelected();
 
     /*
      * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -70,24 +70,25 @@ public class Robot extends TimedRobot {
      */
 
     // schedule the autonomous command (example)
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.start();
-    }
+    // if (m_autonomousCommand != null) {
+    //   m_autonomousCommand.start();
+    // }
   }
 
   @Override
   public void autonomousPeriodic() {
-    Scheduler.getInstance().run();
+   // Scheduler.getInstance().run();
+   teleopPeriodic();
   }
 
   @Override
   public void teleopInit() {
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.cancel();
-    }
+    // if (m_autonomousCommand != null) {
+    //   m_autonomousCommand.cancel();
+    // }
     
     Scheduler.getInstance().add(new DriveTrainCommand());
-    Scheduler.getInstance().add(new ClimberCommand());
+  //  Scheduler.getInstance().add(new ClimberCommand());
     Scheduler.getInstance().add(new HatchClawCommand());
     Scheduler.getInstance().add(new ElevatorCommand());
   }

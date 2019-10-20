@@ -14,9 +14,9 @@ import frc.robot.Robot;
 public class ClimberCommand extends Command {
   private boolean Level1 = false;
   private boolean Level2 = true;
-  private boolean Level3 = false;
-  private boolean hotWheelsForward = false;
-  private boolean hotWheelsBackward = false;
+ // private boolean Level3 = false;
+ // private boolean hotWheelsForward = false;
+ // private boolean hotWheelsBackward = false;
 
   public ClimberCommand() {
     requires(Robot.climberSubsystem);
@@ -35,11 +35,11 @@ public class ClimberCommand extends Command {
   protected void execute() {
     if(Level2 && OI.pilotController.isYButtonPressed()) // Descend from 6pt Platform
     {
-      Robot.climberSubsystem.ClimberLevel2(2);
-      Robot.climberSubsystem.hotWheelsBackward();
-      Robot.climberSubsystem.ClimberLevel2(1);
-      Robot.climberSubsystem.hotWheelsBackward();
-      Robot.climberSubsystem.ClimberLevel1(3);
+      Robot.climberSubsystem.ClimberLevel2(2);      // Drop back climber to 6 inches
+      Robot.climberSubsystem.hotWheelsBackward();   // Go backwards until front climber is able to drop
+      Robot.climberSubsystem.ClimberLevel2(1);      // Drop front climber to 6 inches
+      Robot.climberSubsystem.hotWheelsBackward();   // Go backwards until front bumper is off climber
+      Robot.climberSubsystem.ClimberLevel1(3);      // Retract all climbers
       Level1 = true;
       Level2 = false;
     }
@@ -58,20 +58,20 @@ public class ClimberCommand extends Command {
 
     if(Level1 && OI.pilotController.isXButtonPressed()) // Climb to 12pt Platform
     {
-      Robot.climberSubsystem.ClimberLevel3(3);
-      Robot.climberSubsystem.hotWheelsForward();
-      Robot.climberSubsystem.ClimberLevel1(1);
-      Robot.climberSubsystem.hotWheelsForward();
-      Robot.climberSubsystem.ClimberLevel1(2);
+      Robot.climberSubsystem.ClimberLevel3(3);    // Drop both climbers to raise to 12 pt platform
+      Robot.climberSubsystem.hotWheelsForward();  // Go forward so front wheels are on edge
+      Robot.climberSubsystem.ClimberLevel1(1);    // Pick up front climber
+      Robot.climberSubsystem.hotWheelsForward();  // Go forwards so most of the bot is on the platform
+      Robot.climberSubsystem.ClimberLevel1(2);    // Pick up back climber
     }
 
     if(Level1 && OI.pilotController.isAButtonPressed()) // Climb to 6pt Platform
     {
-      Robot.climberSubsystem.ClimberLevel2(3);
-      Robot.climberSubsystem.hotWheelsForward();
-      Robot.climberSubsystem.ClimberLevel1(1);
-      Robot.climberSubsystem.hotWheelsForward();
-      Robot.climberSubsystem.ClimberLevel1(2);
+      Robot.climberSubsystem.ClimberLevel2(3);    // Drop both climbers to raise to 6 pt platform
+      Robot.climberSubsystem.hotWheelsForward();  // Go forward so front wheels are on edge
+      Robot.climberSubsystem.ClimberLevel1(1);    // Pick up front climber
+      Robot.climberSubsystem.hotWheelsForward();  // Go forwards so most of the bot is on the platform
+      Robot.climberSubsystem.ClimberLevel1(2);    // Pick up back climber
     }
 
     // if(Level2 && OI.pilotController.isXButtonPressed())
