@@ -9,13 +9,15 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.Robot;
 import frc.robot.OI;
+import frc.robot.Robot;
 
 public class ElevatorCommand extends Command {
   int level = 1;
   private boolean toggleY = true;
   private boolean toggleX = true;
+  private boolean toggleA = true;
+  private boolean toggleB = true;
   public ElevatorCommand() {
    requires(Robot.elevatorSubsystem);
   }
@@ -28,52 +30,51 @@ public class ElevatorCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(toggleY && OI.copilotController.isYButtonPressed())
+    if(toggleA && OI.copilotController.isAButtonPressed()) // Go to Level 2
+    {
+      toggleA = false;
+      Robot.elevatorSubsystem.goToLevel2(); 
+      level = 2;   
+    }
+    else if(!OI.pilotController.isAButtonPressed())
+    {
+      toggleA = true;
+    }
+
+    if(toggleB && OI.copilotController.isBButtonPressed()) // Go to Level 3
+    {
+      toggleB = false;
+      Robot.elevatorSubsystem.goToLevel3();    
+      level = 3;
+    }
+    else if(!OI.pilotController.isBButtonPressed())
+    {
+      toggleB = true;
+    }
+
+    if(toggleX && OI.copilotController.isXButtonPressed()) //Go to Level 4 
+    {
+      toggleX = false;
+      Robot.elevatorSubsystem.goToLevel4();
+      level = 4;
+    }
+    else if(!OI.pilotController.isXButtonPressed())
+    {
+      toggleX = true;
+    } 
+
+    if(toggleY && OI.copilotController.isYButtonPressed()) //Go to Level 5
     {
       toggleY = false;
-      // if(level ==0)
-      // {
-      // Robot.elevatorSubsystem.goToLevel1();
-      //  level = 1;
-        
-      // }
-      // else 
-      if (level ==1)
-      {
-        Robot.elevatorSubsystem.goToLevel2();
-        level = 2;
-      }
-      else if (level == 2)
-      {
-        Robot.elevatorSubsystem.goToLevel3();
-        level = 3;
-      }
+      Robot.elevatorSubsystem.goToLevel5();
+      level = 5;
     }
     else if(!OI.pilotController.isYButtonPressed())
     {
       toggleY = true;
     }
-    
-
-    if(toggleX && OI.copilotController.isXButtonPressed())
-    {
-      toggleX = false;
-      if(level == 3)
-      {
-        Robot.elevatorSubsystem.goToLevel2();
-        level = 2;
-      }
-      else if (level == 2)
-      {
-        Robot.elevatorSubsystem.goToLevel1();
-        level = 1;
-      }
-    }
-    else if(!OI.pilotController.isXButtonPressed())
-    {
-      toggleX = true;
-    }
     SmartDashboard.putNumber("Elevator:", Robot.elevatorSubsystem.getElevatorEncoder());
+    SmartDashboard.putNumber("Level:", level);
   }
 
   // Make this return true when this Command no longer needs to run execute()
