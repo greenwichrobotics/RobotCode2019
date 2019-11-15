@@ -12,18 +12,12 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-//import frc.robot.commands.ClimberCommand;
-//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DriveTrainCommand;
-import frc.robot.commands.HatchClawCommand;
-//import frc.robot.commands.SampleCommand;
 import frc.robot.subsystems.DriveTrainSubSystem;
 import frc.robot.subsystems.ElevatorSubsystem;
-import frc.robot.subsystems.UltrasonicSubSystem;
-//import frc.robot.subsystems.SampleSubsystem;
-import frc.robot.subsystems.ClimberSubsystem;
-import frc.robot.subsystems.HatchClawSubsystem;
+import frc.robot.subsystems.HatchSubSystem;
 import frc.robot.commands.ElevatorCommand;
+import frc.robot.commands.HatchCommand;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -37,13 +31,9 @@ public class Robot extends TimedRobot {
    * This function is run when the robot is first started up and should be used
    * for any initialization code.
    */
-  public static final HatchClawSubsystem hatchClawSubsystem = new HatchClawSubsystem();
-  public static final UltrasonicSubSystem ultrasonicSubSystem = new UltrasonicSubSystem();
+  public static final HatchSubSystem hatchSubSystem = new HatchSubSystem();
   public static final ElevatorSubsystem elevatorSubsystem = new ElevatorSubsystem();
-  public static final ClimberSubsystem climberSubsystem = new ClimberSubsystem();
-  //public static final ClimberCommand climberCommand = new ClimberCommand();
   public static final DriveTrainSubSystem driveTrainSubSystem = new DriveTrainSubSystem();
-   //public static final DriveTrainCommand driveTrainCommand = new DriveTrainCommand();
  
   public static OI m_oi;
 
@@ -68,11 +58,6 @@ public class Robot extends TimedRobot {
      * = new MyAutoCommand(); break; case "Default Auto": default:
      * autonomousCommand = new ExampleCommand(); break; }
      */
-
-    // schedule the autonomous command (example)
-    // if (m_autonomousCommand != null) {
-    //   m_autonomousCommand.start();
-    // }
   }
 
   @Override
@@ -83,13 +68,8 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopInit() {
-    // if (m_autonomousCommand != null) {
-    //   m_autonomousCommand.cancel();
-    // }
-    
     Scheduler.getInstance().add(new DriveTrainCommand());
-  //  Scheduler.getInstance().add(new ClimberCommand());
-    Scheduler.getInstance().add(new HatchClawCommand());
+    Scheduler.getInstance().add(new HatchCommand());
     Scheduler.getInstance().add(new ElevatorCommand());
   }
 

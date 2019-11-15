@@ -26,16 +26,15 @@ public class RobotMap {
 
   // PWM
   // Drive motors
-  // Drive motors Caleb was here
   public static int frontLeft = 0;
   public static int rearLeft = 1;
   public static int frontRight = 2;
   public static int rearRight = 3;
   public static int frontClimberMotor = 4;
   public static int backClimberMotor = 5;
-  public static int hotWheelsMotor = 6;
-  public static int hatchRaiseMotor = 7;
-  public static int hatchTurnMotor = 8;
+  public static int hatchMotor = 7;
+ // public static int hatchRaiseMotor = 7;
+ // public static int hatchTurnMotor = 8;
   public static int elevatorMotor = 9;
   
   // DIO

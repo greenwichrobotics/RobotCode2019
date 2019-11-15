@@ -23,10 +23,10 @@ public class ElevatorSubsystem extends Subsystem {
   double upSpeed = 1.0;
   double downSpeed = 1.0;
   int level1 = 0; //Very Bottom
-  int level2 = 550; //At hatch pickup and delivery
-  int level3 = 957; //At hatch remove and carry
-  int level4 = 1200; //Middle hatch lower to deliver
-  int level5 = 1400; //Middle hatch place
+  int level2 = 800; //At hatch pickup and delivery
+  int level3 = 1100; //At hatch remove and carry
+  int level4 = 3000; //Middle hatch lower to deliver
+  int level5 = 3300; //Middle hatch place
 
   public ElevatorSubsystem(){
     elevatorMotorController = new Spark(RobotMap.elevatorMotor); //todo: replace with elevator motor
@@ -41,7 +41,7 @@ public class ElevatorSubsystem extends Subsystem {
   }
 
   public void goToLevel2(){
-    if(level < 1){
+    if(level == 1){
       goUp(level2);
     }
     else if(level > 2){
@@ -92,7 +92,7 @@ public void goToLevel5(){
     
     public void goDown(int toLevel){
       while(elevatorEncoder.get() > toLevel){
-        elevatorMotorController.set(downSpeed);
+        elevatorMotorController.set(-1*downSpeed);
         SmartDashboard.putNumber("SubElevator:", elevatorEncoder.get());
       }   
       elevatorMotorController.set(0.05);
@@ -107,6 +107,7 @@ public void goToLevel5(){
   @Override
   public void initDefaultCommand() {
     elevatorEncoder.reset();
+    SmartDashboard.putNumber("SubElevator:", elevatorEncoder.get());
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
