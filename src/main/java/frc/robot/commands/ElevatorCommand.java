@@ -7,10 +7,12 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.OI;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 public class ElevatorCommand extends Command {
   int level = 1;
@@ -18,6 +20,10 @@ public class ElevatorCommand extends Command {
   private boolean toggleX = true;
   private boolean toggleA = true;
   private boolean toggleB = true;
+  private DigitalInput FLirSensor;
+  private DigitalInput FRirSensor;
+  private DigitalInput BRirSensor;
+  private DigitalInput BLirSensor;
   public ElevatorCommand() {
    requires(Robot.elevatorSubsystem);
   }
@@ -25,6 +31,11 @@ public class ElevatorCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+     FLirSensor = new DigitalInput(RobotMap.FLinfraredSensor);
+     FRirSensor = new DigitalInput(RobotMap.FRinfraredSensor);
+     BRirSensor = new DigitalInput(RobotMap.BRinfraredSensor);
+     BLirSensor = new DigitalInput(RobotMap.BLinfraredSensor);
+
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -75,6 +86,10 @@ public class ElevatorCommand extends Command {
     }
     SmartDashboard.putNumber("Elevator:", Robot.elevatorSubsystem.getElevatorEncoder());
     SmartDashboard.putNumber("Level:", level);
+    SmartDashboard.putBoolean("FLInfrared", !(FLirSensor.get()));
+    SmartDashboard.putBoolean("FRInfrared", !(FRirSensor.get()));
+    SmartDashboard.putBoolean("BRInfrared", !(BRirSensor.get()));
+    SmartDashboard.putBoolean("BLInfrared", !(BLirSensor.get()));
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -47,7 +47,11 @@ public class RobotMap {
   public static int hatchMotorRaiseEncoderA = 6;
   public static int hatchMotorRaiseEncoderB = 7;
   public static int hatchTurnMotorEncoderA = 8;
-  public static int hatchTurnMotorEncoderB = 9; 
+  //public static int hatchTurnMotorEncoderB = 9; 
+  public static int FLinfraredSensor = 9;
+  public static int FRinfraredSensor = 8 ;
+  public static int BRinfraredSensor = 7;
+  public static int BLinfraredSensor = 6;
   
   //ANALOG
   public static int ultrasonic = 0;
