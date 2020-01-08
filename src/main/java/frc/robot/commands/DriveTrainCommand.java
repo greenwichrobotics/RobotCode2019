@@ -7,13 +7,18 @@
 
 package frc.robot.commands;
 
-import frc.robot.Robot;
-import frc.robot.OI;
 import edu.wpi.first.wpilibj.command.Command;
+// import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.OI;
+import frc.robot.Robot;
 
 public class DriveTrainCommand extends Command {
+  //get this from the screen
+  double speedX = 0.9;
+  // SmartDashboard.putNumber("Speed Factor:", speedX);
   public DriveTrainCommand() {
     requires(Robot.driveTrainSubSystem);
+    //requires(Robot.ultrasonicSubSystem);
   }
 
   // Called just before this Command runs the first time
@@ -24,7 +29,9 @@ public class DriveTrainCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.driveTrainSubSystem.arcadeDrive(-1*OI.pilotController.getTriggerValue(), OI.pilotController.getLeftStickX());
+   Robot.driveTrainSubSystem.arcadeDrive(OI.pilotController.getSquared(OI.pilotController.getTriggerValue())*speedX, OI.pilotController.getSquared(OI.pilotController.getLeftStickX()));
+    // Robot.driveTrainSubSystem.arcadeDrive(OI.pilotController.getTriggerValue() * OI.pilotController.getTriggerValue(), 
+    //                                         OI.pilotController.getLeftStickX() * OI.pilotController.getLeftStickX());
   }
 
   // Make this return true when this Command no longer needs to run execute()

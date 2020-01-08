@@ -25,7 +25,7 @@ public class XboxMap extends Joystick{
 	        //joystick is in the loose position so return zero - as if the 
 	        //joystick was not moved
 	        if (Math.abs(d) < DEADZONE_MAGIC_NUMBER) {
-	            return 0;
+	            return 0;           
 	        }
 	        
 	        if (d == 0)
@@ -101,7 +101,14 @@ public class XboxMap extends Joystick{
 		    		value = -deadzone(this.getRawAxis(LEFT_TRIGGER));
 		    	}
 	    	return value;
-	    }
+		}
+		public double getSquared(double value){
+			if (value <0){
+				return -1 * (value * value);
+			}else{
+				return value * value;
+			}
+		}
 //	    public double shiftValue(double value){
 //	    	return ((value + 1) /2);
 //	    }

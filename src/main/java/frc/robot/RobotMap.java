@@ -24,16 +24,44 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
 
+  // PWM
   // Drive motors
   public static int frontLeft = 0;
   public static int rearLeft = 1;
   public static int frontRight = 2;
   public static int rearRight = 3;
+  public static int frontClimberMotor = 4;
+  public static int backClimberMotor = 5;
+  public static int hatchMotor = 7;
+ // public static int hatchRaiseMotor = 7;
+ // public static int hatchTurnMotor = 8;
+  public static int elevatorMotor = 9;
+  
+  // DIO
+  public static int frontClimberSwitch = 0;
+  public static int backClimberSwitch = 1;
+  public static int hotWheelsEncoderA = 2;
+  public static int hotWheelsEncoderB = 3;
+  public static int elevatorEncoderA = 4;
+  public static int elevatorEncoderB = 5;
+  public static int hatchMotorRaiseEncoderA = 6;
+  public static int hatchMotorRaiseEncoderB = 7;
+  public static int hatchTurnMotorEncoderA = 8;
+  //public static int hatchTurnMotorEncoderB = 9; 
+  public static int FLinfraredSensor = 9;
+  public static int FRinfraredSensor = 8 ;
+  public static int BRinfraredSensor = 7;
+  public static int BLinfraredSensor = 6;
+  
+  //ANALOG
+  public static int ultrasonic = 0;
+  
+  //USB
 
-  public static int hatchMotor = 4;
-  public static int armEncoderA = 0;
-  public static int armEncoderB = 1;
+  //public static int hatchMotor = 4;
+ 
 
   public static int pilotControllerPort = 0;
   public static int copilotControllerPort = 1;
+
 }
